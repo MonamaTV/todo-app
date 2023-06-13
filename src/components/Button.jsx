@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
 
-const Button = () => {
+const Button = ({ handleClick }) => {
   return (
-    <button className='w-full px-3 py-2 text-center bg-teal-700 my-1 text-white'>Submit</button>
-  )
-}
+    <button
+      onClick={handleClick}
+      className="w-full px-3 py-2 text-center bg-teal-700 my-1 text-white"
+    >
+      Submit
+    </button>
+  );
+};
 
-export default Button
+export default Button;

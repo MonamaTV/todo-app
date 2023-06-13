@@ -26,12 +26,10 @@ const Todo = () => {
   };
 
   const handleDeleteTodo = (todoId) => {
-    setTodos(prevTodos => prevTodos.filter((todo) => todo.id !== todoId));
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== todoId));
   };
 
-  const handleEditTodo = (todo) => {
-
-  }
+  const handleEditTodo = (todo) => {};
 
   const handleAddTodo = (e) => {
     e.preventDefault();
@@ -45,54 +43,53 @@ const Todo = () => {
     };
 
     setTodos([...todos, newTodo]);
-    
 
     setTodo("");
   };
 
   return (
-    <div className="h-screen md:w-[768px] mx-auto flex flex-col my-3  justify-center">
-      <Form onSubmit={handleAddTodo}>
-        <Input
-          value={todo}
-          setValue={setTodo}
-          placeholder={"Add task"}
-          type={"text"}
-        />
-        {/* <Input /> */}
-        <Button />
-      </Form>
-      <h2 className="text-3xl font-bold text-teal-950 px-3 my-3">Todos</h2>
-      {todos.map((todo) => {
-        return (
-          <div
-            key={todo.id}
-            // onClick={() => handleDeleteTodo(todo.id)}
-            className="flex flex-row items-center md:w-[600px] w-full px-3 first:w-3 space-x-2"
-          >
-            <Checkbox onChange={() => handleCompleteTodo(todo.id)} />
-            <p
-              className={`text-lg font-normal ${
-                todo.completed ? "line-through" : ""
-              }`}
+    <div className="h-screen w-screen items-center flex flex-col my-3  justify-center">
+      <div>
+        <Form onSubmit={handleAddTodo}>
+          <Input
+            value={todo}
+            setValue={setTodo}
+            placeholder={"Add task"}
+            type={"text"}
+          />
+          <Button />
+        </Form>
+        <h2 className="text-3xl font-bold text-teal-950 px-3 my-3">Todos</h2>
+        {todos.map((todo) => {
+          return (
+            <div
+              key={todo.id}
+              className="flex flex-row items-center md:w-[600px] w-full px-3 first:w-3 space-x-2"
             >
-              {todo.value}{" "}
-            </p>
-            <button
-              className="bg-red-600 py-1 px-3 text-xs text-white"
-              onClick={() => handleDeleteTodo(todo.id)}
-            >
-              Delete
-            </button>
-            <button
-              className="bg-green-600 py-1 px-3 text-xs text-white"
-              onClick={() => handleEditTodo(todo.id)}
-            >
-              Edit
-            </button>
-          </div>
-        );
-      })}
+              <Checkbox onChange={() => handleCompleteTodo(todo.id)} />
+              <p
+                className={`text-lg font-normal ${
+                  todo.completed ? "line-through" : ""
+                }`}
+              >
+                {todo.value}{" "}
+              </p>
+              <button
+                className="bg-red-600 py-1 px-3 text-xs text-white"
+                onClick={() => handleDeleteTodo(todo.id)}
+              >
+                Delete
+              </button>
+              <button
+                className="bg-green-600 py-1 px-3 text-xs text-white"
+                onClick={() => handleEditTodo(todo.id)}
+              >
+                Edit
+              </button>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
