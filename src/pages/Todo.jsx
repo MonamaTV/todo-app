@@ -48,7 +48,7 @@ const Todo = () => {
   };
 
   return (
-    <div className="h-screen w-screen items-center flex flex-col my-3  justify-center">
+    <div className="h-screen w-full items-center flex flex-col my-3  justify-center">
       <div>
         <Form onSubmit={handleAddTodo}>
           <Input
@@ -64,7 +64,7 @@ const Todo = () => {
           return (
             <div
               key={todo.id}
-              className="flex flex-row items-center md:w-[600px] w-full px-3 first:w-3 space-x-2"
+              className="flex flex-row items-center  w-full px-3 first:w-3 space-x-2"
             >
               <Checkbox onChange={() => handleCompleteTodo(todo.id)} />
               <p
