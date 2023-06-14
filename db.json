@@ -16,26 +16,20 @@
       "email": "keletsovincent92@gmail.com",
       "password": "1212",
       "id": 3
+    },
+    {
+      "username": "Castro",
+      "email": "castro@test.com",
+      "password": "1234",
+      "id": 4
     }
   ],
   "todos": [
     {
-      "value": "Cook dinner",
+      "value": "ewwe",
       "completed": false,
-      "id": "aa20c76c-7ae9-452b-a669-90497f2cf7e0",
+      "id": "f6075e72-7bf1-4eb3-b809-b023e7323567",
       "userId": "123@gmail.com"
-    },
-    {
-      "value": "Play games",
-      "completed": false,
-      "id": "836986d2-a680-419b-b8be-77df38085810",
-      "userId": "123@gmail.com"
-    },
-    {
-      "value": "Code code",
-      "completed": false,
-      "id": "157338d8-fd4e-4516-9457-4f2bf3bdd527",
-      "userId": "keletsovincent92@gmail.com"
     }
   ]
 }

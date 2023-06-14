@@ -10,28 +10,32 @@ const TodoItem = ({
   return (
     <div
       key={todo.id}
-      className="flex flex-row items-center w-full px-3 first:w-3 space-x-2"
+      className="my-2 flex flex-row items-center justify-between w-full px-3 first:w-3 space-x-2"
     >
-      <Checkbox onChange={() => handleCompleteTodo(todo.id)} />
-      <p
-        className={`text-lg font-normal ${
-          todo.completed ? "line-through" : ""
-        }`}
-      >
-        {todo.value}{" "}
-      </p>
-      <button
-        className="bg-red-600 py-1 px-3 text-xs text-white"
-        onClick={() => handleDeleteTodo(todo.id)}
-      >
-        Delete
-      </button>
-      <button
-        className="bg-green-600 py-1 px-3 text-xs text-white"
-        onClick={() => handleEditTodo(todo.id)}
-      >
-        Edit
-      </button>
+      <div className="flex flex-row items-center space-x-2">
+        <Checkbox onChange={() => handleCompleteTodo(todo.id)} />
+        <p
+          className={`text-sm font-normal ${
+            todo.completed ? "line-through" : ""
+          }`}
+        >
+          {todo.value}{" "}
+        </p>
+      </div>
+      <div>
+        <button
+          className="bg-red-600 py-1 px-3 text-xs text-white mx-1"
+          onClick={() => handleDeleteTodo(todo.id)}
+        >
+          Delete
+        </button>
+        <button
+          className="bg-green-600 py-1 px-3 text-xs text-white"
+          onClick={() => handleEditTodo(todo.id)}
+        >
+          Edit
+        </button>
+      </div>
     </div>
   );
 };
