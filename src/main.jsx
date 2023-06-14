@@ -1,31 +1,25 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import Login from './pages/Login.jsx';
-import Register from './pages/Register.jsx';
-import Todo from './pages/Todo.jsx';
+import { BrowserRouter, Route, RouterProvider, Routes } from "react-router-dom";
+import Login from "./pages/Login.jsx";
+import Register from "./pages/Register.jsx";
+import Todo from "./pages/Todo.jsx";
+import AuthProvider from "./context/authContext.jsx";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Login />
-  },
-  {
-    path: "/register",
-    element: <Register />,
-  },
-  {
-    path: "/todo",
-    element: <Todo />,
-  },
-]);
+const Wrapper = () => {
+  return (
+    <BrowserRouter>
+      <AuthProvider>
+        <Routes>
+          <Route element={<Login />} path="/" />
+          <Route element={<Register />} path="/register" />
+          <Route element={<Todo />} path="/todo" />
+        </Routes>
+      </AuthProvider>
+    </BrowserRouter>
+  );
+};
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router} />
-)
+ReactDOM.createRoot(document.getElementById("root")).render(<Wrapper />);

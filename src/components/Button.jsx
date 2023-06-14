@@ -4,7 +4,7 @@ const Button = ({ handleClick }) => {
   return (
     <button
       onClick={handleClick}
-      className="w-full px-3 py-2 text-center bg-teal-700 my-1 text-white"
+      className="active:outline active:outline-green-700 rounded-lg w-full px-3 py-2 text-center bg-teal-700 my-1 text-white"
     >
       Submit
     </button>

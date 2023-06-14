@@ -4,6 +4,7 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import Checkbox from "../components/Checkbox";
 import { v4 as uuidv4 } from "uuid";
+import TodoItem from "../components/TodoItem";
 
 const Todo = () => {
   const [todos, setTodos] = useState([]);
@@ -29,7 +30,7 @@ const Todo = () => {
     setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== todoId));
   };
 
-  const handleEditTodo = (todo) => {};
+  const handleEditTodo = (todoId) => {};
 
   const handleAddTodo = (e) => {
     e.preventDefault();
@@ -48,47 +49,30 @@ const Todo = () => {
   };
 
   return (
-    <div className="h-screen w-full items-center flex flex-col my-3  justify-center">
-      <div>
-        <Form onSubmit={handleAddTodo}>
-          <Input
-            value={todo}
-            setValue={setTodo}
-            placeholder={"Add task"}
-            type={"text"}
+    <div className="bg-green-950 text-white w-screen h-screen flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-start">
+      <Form onSubmit={handleAddTodo}>
+        <Input
+          value={todo}
+          setValue={setTodo}
+          placeholder={"Add task"}
+          type={"text"}
+        />
+        {/* <Input /> */}
+        <Button />
+      </Form>
+      <h2 className="text-3xl font-bold text-white px-3 my-3">Todos</h2>
+      {todos.map((todo) => {
+        return (
+          <TodoItem
+            handleCompleteTodo={handleCompleteTodo}
+            handleDeleteTodo={handleDeleteTodo}
+            handleEditTodo={handleEditTodo}
+            todo={todo}
+            key={todo.key}
           />
-          <Button />
-        </Form>
-        <h2 className="text-3xl font-bold text-teal-950 px-3 my-3">Todos</h2>
-        {todos.map((todo) => {
-          return (
-            <div
-              key={todo.id}
-              className="flex flex-row items-center  w-full px-3 first:w-3 space-x-2"
-            >
-              <Checkbox onChange={() => handleCompleteTodo(todo.id)} />
-              <p
-                className={`text-lg font-normal ${
-                  todo.completed ? "line-through" : ""
-                }`}
-              >
-                {todo.value}{" "}
-              </p>
-              <button
-                className="bg-red-600 py-1 px-3 text-xs text-white"
-                onClick={() => handleDeleteTodo(todo.id)}
-              >
-                Delete
-              </button>
-              <button
-                className="bg-green-600 py-1 px-3 text-xs text-white"
-                onClick={() => handleEditTodo(todo.id)}
-              >
-                Edit
-              </button>
-            </div>
-          );
-        })}
+        );
+      })}
       </div>
     </div>
   );

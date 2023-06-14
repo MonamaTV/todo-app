@@ -1,26 +1,63 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import Form from "../components/Form";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import { loginUser } from "../api/users";
+import { UserContext } from "../context/authContext";
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
+
+  const [loggedIn, setLoggedIn] = useContext(UserContext);
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [error, setError] = useState("");
+
+  const handleUserInput = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setUser({ ...user, [name]: value });
+  };
+
   const navigate = useNavigate();
-  const navigateToTodo = () => {
-    navigate("/todo");
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await loginUser(user.email, user.password);
+      if(!response) {
+        setError("Failed to register.")
+      }
+      setLoggedIn(response);
+      navigate("/todo");
+    } catch (error) {
+      setError("Encountered an error during registration.")
+    }
   };
 
   return (
-    <div className="w-screen h-screen flex flex-col justify-center items-center">
-      <h2 className="text-3xl font-bold text-teal-950">Login</h2>
+    <div className="w-screen h-screen bg-green-950 text-white flex flex-col justify-center items-center">
+      <h2 className="text-4xl font-bold text-white">Login</h2>
       <p className="text-sm mb-3">Welcome back to MLab</p>
-      <Form>
-        <Input placeholder={"Email"} type={"email"} />
-        <Input placeholder={"Password"} type={"password"} />
-        {/* <Input /> */}
-        <Button handleClick={navigateToTodo} />
+      <Form onSubmit={handleLogin}>
+        <Input
+          name="email"
+          placeholder={"Email"}
+          type={"email"}
+          setValue={handleUserInput}
+        />
+        <Input
+          name="password"
+          placeholder={"Password"}
+          type={"password"}
+          setValue={handleUserInput}
+        />
+        <Button />
+        {error && <p className="text-red-600 text-xs">{ error } </p>}
       </Form>
-      <Link className="text-xs text-gray-700" to="/register">
+      <Link className="text-xs text-gray-200" to="/register">
         Don't have an account? Register
       </Link>
     </div>
