@@ -16,6 +16,7 @@ export const loginUser = async (email, password) => {
 };
 
 export const registerUser = async (username, email, password) => {
+  if (username === "" || email === "" || password === "") return null;
   const { data } = await myAxios().get("/users", {
     params: {
       email,
@@ -29,8 +30,9 @@ export const registerUser = async (username, email, password) => {
   const { data: newUser } = await myAxios().post("/users", {
     username,
     email,
-    password,   
+    password,
   });
 
-  return newUser
+  const { password: pass, ...restUser } = newUser;
+  return restUser;
 };

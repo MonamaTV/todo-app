@@ -13,6 +13,11 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
+
+  if(loggedIn) {
+    navigate("/todo");
+  }
 
   const [error, setError] = useState("");
 
@@ -22,18 +27,18 @@ const Login = () => {
     setUser({ ...user, [name]: value });
   };
 
-  const navigate = useNavigate();
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const response = await loginUser(user.email, user.password);
       if(!response) {
-        setError("Failed to register.")
+        setError("Email and password do not match")
+        return;
       }
       setLoggedIn(response);
       navigate("/todo");
     } catch (error) {
-      setError("Encountered an error during registration.")
+      setError("Encountered an error during login.")
     }
   };
 
@@ -57,7 +62,7 @@ const Login = () => {
         <Button />
         {error && <p className="text-red-600 text-xs">{ error } </p>}
       </Form>
-      <Link className="text-xs text-gray-200" to="/register">
+      <Link className="block my-1 text-xs text-gray-200" to="/register">
         Don't have an account? Register
       </Link>
     </div>

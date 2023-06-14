@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Form from "../components/Form";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { registerUser } from "../api/users";
+import { UserContext } from "../context/authContext";
 
 const Register = () => {
   const navigate = useNavigate();
-
+  const [error, setError] = useState("")
+  const [loggedIn, setLoggedIn] = useContext(UserContext);
   const [user, setUser] = useState({
     username: "",
     email: "",
@@ -24,9 +26,14 @@ const Register = () => {
     event.preventDefault();
     try {
       const response = await registerUser(user.username, user.email, user.password);
-      console.log(response);
+      if(!response) {
+        setError("It seems like user already exists")
+        return;
+      }
+      setLoggedIn(response);
+      navigate("/todo");
     } catch (error) {
-      console.log(error);
+      setError("Encountered an error during registration.")
     }
   };
 
@@ -40,8 +47,9 @@ const Register = () => {
         <Input name="email" placeholder={"Email"} type={"email"} setValue={handleUserInput} />
         <Input name="password" placeholder={"Password"} type={"password"} setValue={handleUserInput} />
         <Button />
-      </Form>
-      <Link className="text-xs text-gray-200" to="/">
+        {error && <p className="text-red-600 text-xs">{ error } </p>}
+      </Form> 
+      <Link className="block my-1 text-xs text-gray-200" to="/">
         Have an account? Login
       </Link>
     </div>
