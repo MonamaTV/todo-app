@@ -1,5 +1,5 @@
 import { myAxios } from "../axios/axios";
-
+import { v4 as uuidv4 } from "uuid";
 export const loginUser = async (email, password) => {
   const { data } = await myAxios().get("/users", {
     params: {
@@ -27,10 +27,13 @@ export const registerUser = async (username, email, password) => {
     return null;
   }
 
+  const newId = uuidv4();
+
   const { data: newUser } = await myAxios().post("/users", {
     username,
     email,
     password,
+    id: newId
   });
 
   const { password: pass, ...restUser } = newUser;

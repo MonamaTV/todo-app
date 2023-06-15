@@ -8,7 +8,7 @@ import Register from "./pages/Register.jsx";
 import Todo from "./pages/Todo.jsx";
 import AuthProvider from "./context/authContext.jsx";
 
-const Wrapper = () => {
+export const Wrapper = () => {
   return (
     <BrowserRouter>
       <AuthProvider>

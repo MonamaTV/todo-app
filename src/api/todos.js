@@ -10,13 +10,12 @@ export const addTodo = async (todo) => {
 };
 
 export const getTodos = async (email) => {
-    console.log(email)
+  console.log(email);
   const { data } = await myAxios().get("/todos", {
     params: {
       userId: email,
     },
   });
-  console.log(data)
   return data;
 };
 
@@ -26,5 +25,18 @@ export const deleteTodo = async (todoId) => {
       "Content-Type": "application/json",
     },
   });
+  return data;
+};
+
+export const updateTodo = async (todo, todoId) => {
+  const { data } = await myAxios().put(
+    `/todos/${todoId}`,
+    todo,
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
   return data;
 };

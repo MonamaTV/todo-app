@@ -1,35 +1,48 @@
 {
   "users": [
     {
-      "id": 1,
-      "email": "123@gmail.com",
-      "password": "123"
-    },
-    {
-      "username": "WIPO-26",
-      "email": "mphochuene42@gmail.com",
-      "password": "wqwq",
-      "id": 2
-    },
-    {
-      "username": "w12",
-      "email": "keletsovincent92@gmail.com",
-      "password": "1212",
-      "id": 3
-    },
-    {
       "username": "Castro",
-      "email": "castro@test.com",
-      "password": "1234",
-      "id": 4
+      "email": "123@gmail.com",
+      "password": "123",
+      "id": "546a729c-cb85-4128-9d57-6ebb55f13100"
+    },
+    {
+      "username": "Ribs",
+      "email": "mphochuene42@gmail.com",
+      "password": "123",
+      "id": "0f24f8fc-1c0a-4095-a27c-23d02ca04d36"
     }
   ],
   "todos": [
     {
-      "value": "ewwe",
-      "completed": false,
-      "id": "f6075e72-7bf1-4eb3-b809-b023e7323567",
-      "userId": "123@gmail.com"
+      "id": "76f448e7-932f-49ec-a65d-52d2dc5b5441",
+      "value": "Code Project 4",
+      "priority": "2",
+      "userId": "0f24f8fc-1c0a-4095-a27c-23d02ca04d36"
+    },
+    {
+      "id": "888fa19b-8bd1-4df7-b568-789d18076190",
+      "value": "Cook dinner",
+      "priority": "2",
+      "userId": "0f24f8fc-1c0a-4095-a27c-23d02ca04d36"
+    },
+    {
+      "id": "3dad0f04-75a5-4a15-99ef-f88c7189f9c2",
+      "value": "Moon walking",
+      "priority": "3",
+      "userId": "0f24f8fc-1c0a-4095-a27c-23d02ca04d36"
+    },
+    {
+      "id": "695bc37b-63c0-40ea-9396-c8bcaa1ee792",
+      "value": "Sleep walking",
+      "priority": "1",
+      "userId": "0f24f8fc-1c0a-4095-a27c-23d02ca04d36"
+    },
+    {
+      "id": "3bc54d27-707e-40ea-a87c-a89c677df9a8",
+      "value": "Play with fire",
+      "priority": "2",
+      "userId": "0f24f8fc-1c0a-4095-a27c-23d02ca04d36"
     }
   ]
 }
