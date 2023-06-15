@@ -10,7 +10,9 @@ import { addTodo, deleteTodo, getTodos, updateTodo } from "../api/todos";
 const Todo = () => {
   const [todos, setTodos] = useState([]);
 
-  const [user, setUser] = useContext(UserContext);
+  const [user, _] = useContext(UserContext);
+  const [temps, setTemps] = useState([])
+  const [search, setSearch] = useState("")
   const [todo, setTodo] = useState("");
   const [priority, setPriority] = useState("");
 
@@ -39,6 +41,7 @@ const Todo = () => {
       const response = await deleteTodo(todoId);
       if (response) {
         setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== todoId));
+        setTemps((prevTodos) => prevTodos.filter((todo) => todo.id !== todoId));
       }
     } catch (error) {}
   };
@@ -68,6 +71,7 @@ const Todo = () => {
       }
 
       setTodos([...todos, newTodo]);
+      setTemps([...todos, newTodo]);
     } catch (error) {
       console.log(error);
     }
@@ -89,6 +93,7 @@ const Todo = () => {
           });
         });
       }
+      setTemps(todos);
     } catch (error) {
       console.log(error)
     }
@@ -99,6 +104,7 @@ const Todo = () => {
       try {
         const myTodos = await getTodos(user.id);
         setTodos(myTodos);
+        setTemps(myTodos);
       } catch (error) {
         setTodos([]);
       }
@@ -107,6 +113,25 @@ const Todo = () => {
     fetchTodos();
   }, []);
 
+
+  const handleSearch = event => {
+      
+    const value = event.target.value;
+
+    if(value === "") {
+      setTodos(temps);
+      return;
+    }
+
+    const newTodos = temps.filter(todo => {
+      if(todo.value.toLowerCase().includes(value.toLowerCase())) {
+        return todo
+      }
+    });
+
+
+    setTodos(newTodos)
+  }
 
   return (
     user && (
@@ -161,6 +186,7 @@ const Todo = () => {
             <Form onSubmit={handleAddTodo}>
               <input
                 type={"text"}
+                onChange={handleSearch}
                 className="text-slate-900 focus:outline focus:outline-green-700 rounded-lg border border-teal-700 px-3 py-2 outline-none my-1"
                 placeholder={"Search task"}
               />

@@ -15,15 +15,9 @@
   ],
   "todos": [
     {
-      "id": "76f448e7-932f-49ec-a65d-52d2dc5b5441",
-      "value": "Code Project 4",
-      "priority": "2",
-      "userId": "0f24f8fc-1c0a-4095-a27c-23d02ca04d36"
-    },
-    {
       "id": "888fa19b-8bd1-4df7-b568-789d18076190",
       "value": "Cook dinner",
-      "priority": "2",
+      "priority": "1",
       "userId": "0f24f8fc-1c0a-4095-a27c-23d02ca04d36"
     },
     {

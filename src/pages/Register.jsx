@@ -24,6 +24,10 @@ const Register = () => {
 
   const handleRegister = async (event) => {
     event.preventDefault();
+    if (username === "" || email === "" || password === "") {
+      setError("Enter valid details.")
+      return
+    };
     try {
       const response = await registerUser(user.username, user.email, user.password);
       if(!response) {
