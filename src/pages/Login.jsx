@@ -15,10 +15,7 @@ const Login = () => {
   });
   const navigate = useNavigate();
 
-  if(loggedIn) {
-    navigate("/todo");
-  }
-
+ 
   const [error, setError] = useState("");
 
   const handleUserInput = (event) => {

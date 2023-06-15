@@ -11,19 +11,19 @@
       "email": "mphochuene42@gmail.com",
       "password": "123",
       "id": "0f24f8fc-1c0a-4095-a27c-23d02ca04d36"
+    },
+    {
+      "username": "Castro",
+      "email": "1231@gmail.com",
+      "password": "1231",
+      "id": "eead71bc-1d7d-47c9-83a4-4374d457b2e6"
     }
   ],
   "todos": [
     {
-      "id": "888fa19b-8bd1-4df7-b568-789d18076190",
-      "value": "Cook dinner",
-      "priority": "1",
-      "userId": "0f24f8fc-1c0a-4095-a27c-23d02ca04d36"
-    },
-    {
       "id": "3dad0f04-75a5-4a15-99ef-f88c7189f9c2",
       "value": "Moon walking",
-      "priority": "3",
+      "priority": "1",
       "userId": "0f24f8fc-1c0a-4095-a27c-23d02ca04d36"
     },
     {
@@ -37,6 +37,12 @@
       "value": "Play with fire",
       "priority": "2",
       "userId": "0f24f8fc-1c0a-4095-a27c-23d02ca04d36"
+    },
+    {
+      "id": "9fab9f26-6e25-4d2d-8540-89858bfea3c1",
+      "value": "Code Project 4",
+      "priority": "1",
+      "userId": "eead71bc-1d7d-47c9-83a4-4374d457b2e6"
     }
   ]
 }

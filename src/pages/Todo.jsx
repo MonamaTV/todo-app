@@ -12,7 +12,6 @@ const Todo = () => {
 
   const [user, _] = useContext(UserContext);
   const [temps, setTemps] = useState([])
-  const [search, setSearch] = useState("")
   const [todo, setTodo] = useState("");
   const [priority, setPriority] = useState("");
 

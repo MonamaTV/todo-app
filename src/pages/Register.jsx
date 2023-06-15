@@ -24,7 +24,7 @@ const Register = () => {
 
   const handleRegister = async (event) => {
     event.preventDefault();
-    if (username === "" || email === "" || password === "") {
+    if (user.username === "" || user.email === "" || user.password === "") {
       setError("Enter valid details.")
       return
     };

@@ -9,11 +9,10 @@ export const addTodo = async (todo) => {
   return data;
 };
 
-export const getTodos = async (email) => {
-  console.log(email);
+export const getTodos = async (id) => {
   const { data } = await myAxios().get("/todos", {
     params: {
-      userId: email,
+      userId: id,
     },
   });
   return data;
