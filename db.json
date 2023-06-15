@@ -27,22 +27,16 @@
       "userId": "0f24f8fc-1c0a-4095-a27c-23d02ca04d36"
     },
     {
-      "id": "695bc37b-63c0-40ea-9396-c8bcaa1ee792",
-      "value": "Sleep walking",
-      "priority": "1",
-      "userId": "0f24f8fc-1c0a-4095-a27c-23d02ca04d36"
-    },
-    {
-      "id": "3bc54d27-707e-40ea-a87c-a89c677df9a8",
-      "value": "Play with fire",
-      "priority": "2",
-      "userId": "0f24f8fc-1c0a-4095-a27c-23d02ca04d36"
-    },
-    {
       "id": "9fab9f26-6e25-4d2d-8540-89858bfea3c1",
       "value": "Code Project 4",
       "priority": "1",
       "userId": "eead71bc-1d7d-47c9-83a4-4374d457b2e6"
+    },
+    {
+      "id": "17e64f2d-f964-48a4-afba-4656ae3fed7c",
+      "value": "Prepare for semester 2",
+      "priority": "3",
+      "userId": "0f24f8fc-1c0a-4095-a27c-23d02ca04d36"
     }
   ]
 }

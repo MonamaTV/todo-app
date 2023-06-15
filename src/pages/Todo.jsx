@@ -136,14 +136,14 @@ const Todo = () => {
     user && (
       <div className="bg-green-950 text-white w-screen h-screen flex flex-col py-5 items-center">
         <div className="md:w-[700px] w-full">
-          <h2 className="font-bold text-3xl px-3 my-3  w-full">
+          <h2 className="font-bold text-3xl px-3 my-3 w-full">
             Welcome, {user.username}
           </h2>
           <Form onSubmit={handleAddTodo}>
             <Input
               name={"todo"}
               setValue={handleTodoInput}
-              placeholder={"Add task"}
+              placeholder={"Task name"}
               type={"text"}
             />
             <label className="font-bold" htmlFor="priority">

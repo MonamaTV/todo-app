@@ -12,29 +12,25 @@ const TodoItem = ({
   const [value, setValue] = useState(todo.value ?? "");
   const [priority, setPriority] = useState("");
 
-
   const handleTodoInput = (event) => {
     const value = event.target.value;
     setValue(value);
   };
 
   const handlePriority = (event) => {
-    setPriority(event.target.value)
+    setPriority(event.target.value);
   };
-
 
   const handleSave = (todoId) => {
     const editedTodo = {
       ...todo,
       value: value ?? todo.value,
-      priority: priority ?? todo.priority 
+      priority: priority ?? todo.priority,
     };
 
     handleEditTodo(editedTodo, todoId);
     setEdit(false);
-
-  }
-
+  };
 
   return (
     <div
@@ -50,11 +46,7 @@ const TodoItem = ({
       {!edit ? (
         <>
           <div className="flex flex-row items-center space-x-2">
-            <p
-              className={`text-sm font-normal`}
-            >
-              {todo.value}{" "}
-            </p>
+            <p className={`text-sm font-normal`}>{todo.value} </p>
           </div>
           <div>
             <button
@@ -78,18 +70,34 @@ const TodoItem = ({
               todo.completed ? "line-through" : ""
             }`}
           >
-            <input value={value} onChange={handleTodoInput} className="text-slate-900 focus:outline focus:outline-green-700 rounded-lg border border-teal-700 px-3 py-2 outline-none my-1" />
-            <select onChange={handlePriority} defaultValue={todo.priority} className="text-slate-900 focus:outline focus:outline-green-700 rounded-lg border border-teal-700 px-3 py-2 outline-none my-1">
+            <input
+              value={value}
+              onChange={handleTodoInput}
+              className="text-slate-900 focus:outline focus:outline-green-700 rounded-lg border border-teal-700 px-3 py-2 outline-none my-1"
+            />
+            <select
+              onChange={handlePriority}
+              defaultValue={todo.priority}
+              className="text-slate-900 focus:outline focus:outline-green-700 rounded-lg border border-teal-700 px-3 py-2 outline-none my-1"
+            >
               <option value="1">High</option>
               <option value="2">Medium</option>
               <option value="3">Low</option>
             </select>
-            <button onClick={() => handleSave(todo.id)} className="px-3 py-1 bg-red-600 rounded-md text-xs mr-1">
-              Save
-            </button>
-            <button onClick={() => setEdit(false)} className="px-3 py-1 bg-gray-600 rounded-md text-xs mr-1">
-              Cancel
-            </button>
+            <div>
+              <button
+                onClick={() => handleSave(todo.id)}
+                className="px-3 py-1 bg-red-600 rounded-md text-xs mr-1"
+              >
+                Save
+              </button>
+              <button
+                onClick={() => setEdit(false)}
+                className="px-3 py-1 bg-gray-600 rounded-md text-xs mr-1"
+              >
+                Cancel
+              </button>
+            </div>
           </p>
         </div>
       )}
